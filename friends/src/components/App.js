@@ -33,7 +33,8 @@ function App() {
             <ErrorContext.Provider value={{error, setError, INITIAL_ERROR}}>
                <div className="content">
                   <Route exact path="/login" component={LoginForm} />
-                  <Route path="/error" component={PageError} />
+                  <Route exact path="/friends" component={FriendList} />
+                  <Route exact path="/error" component={PageError} />
                </div>
             </ErrorContext.Provider>
          </article>

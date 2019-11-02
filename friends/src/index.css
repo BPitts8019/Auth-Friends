@@ -230,6 +230,10 @@ html {
   margin: 2rem auto;
   width: 50%;
 }
+#root .App .error {
+  color: red;
+  margin: 1rem 0;
+}
 #root .App input {
   background-color: #be9b7b;
   border: 1px solid #854442;

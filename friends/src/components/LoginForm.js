@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react";
-import authApi from "../utils/api";
+import authApi, {setToken} from "../utils/api";
 import ErrorContext from "../contexts/ErrorContext";
 
 function LoginForm ({history}) {
@@ -24,7 +24,8 @@ function LoginForm ({history}) {
       authApi()
          .post("/api/login", data)
          .then(response => {
-            console.log(response.data);
+            setToken(response.data.payload);
+            history.push("/friends");
          })
          .catch(err => {
             setError({
