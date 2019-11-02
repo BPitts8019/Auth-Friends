@@ -1,10 +1,15 @@
 import React from 'react';
-import './App.css';
 
 function App() {
    return (
       <div className="App">
-
+         <header>
+            <h1>My Friends List</h1>
+            <nav>
+               <a>Hello</a>
+               <a>World</a>
+            </nav>
+         </header>
       </div>
    );
 }

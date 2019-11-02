@@ -1,0 +1,12 @@
+.auto-scale () {
+   height: auto;
+   width: auto;
+   max-width: 100%;
+}
+
+.custom-layout (@justify, @align: flex-start, @direction: row, @wrap: nowrap) {
+   display: flex;
+   flex-flow: @direction @wrap;
+   justify-content: @justify;
+   align-items: @align;
+}
