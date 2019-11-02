@@ -197,10 +197,13 @@ html {
   justify-content: flex-start;
   align-items: flex-start;
 }
+#root .App article .content {
+  margin: 0 auto;
+  width: 50%;
+}
 #root nav {
   background-color: #85756e;
   color: #f2ecdd;
-  margin-right: 1rem;
   padding: 0;
   width: 200px;
   display: flex;

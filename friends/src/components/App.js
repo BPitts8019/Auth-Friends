@@ -1,5 +1,9 @@
 import React from 'react';
-import {NavLink, Link, Route} from "react-router-dom";
+
+// Components
+import {NavLink, Route} from "react-router-dom";
+import LoginForm from "./LoginForm";
+import FriendList from "./FriendList";
 
 function App() {
    return (
@@ -10,18 +14,16 @@ function App() {
 
          <article>
             <nav>
-               <NavLink to="/">Home</NavLink>
+               <NavLink exact to="/">Home</NavLink>
                <NavLink to="/login">Log In</NavLink>
                <NavLink to="/logout">Log Out</NavLink>
                <NavLink to="/add-friend">Add a Friend</NavLink>
             </nav>
          
-            <ul className="friendsList">
-               <li className="friend"><Link to="./friend/:id">Bill</Link></li>
-            </ul>
+            <div className="content">
+               <Route exact path="/login" component={LoginForm} />
+            </div>
          </article>
-
-
       </div>
    );
 }
