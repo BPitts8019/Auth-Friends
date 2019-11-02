@@ -1,5 +1,5 @@
 import React from 'react';
-import "./App.css";
+import {NavLink, Link, Route} from "react-router-dom";
 
 function App() {
    return (
@@ -10,16 +10,18 @@ function App() {
 
          <article>
             <nav>
-               <a>Home</a>
-               <a>Log In</a>
-               <a>Account</a>
-               <a>World</a>
+               <NavLink to="/">Home</NavLink>
+               <NavLink to="/login">Log In</NavLink>
+               <NavLink to="/logout">Log Out</NavLink>
+               <NavLink to="/add-friend">Add a Friend</NavLink>
             </nav>
          
             <ul className="friendsList">
-               <li className="friend">Bill</li>
+               <li className="friend"><Link to="./friend/:id">Bill</Link></li>
             </ul>
          </article>
+
+
       </div>
    );
 }
