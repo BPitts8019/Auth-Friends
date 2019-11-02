@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
+import {getToken} from "../utils/api";
 
 // Context
 import ErrorContext from "../contexts/ErrorContext";
+
 // Components
 import {NavLink, Route} from "react-router-dom";
 import LoginForm from "./LoginForm";
@@ -15,6 +17,7 @@ function App() {
       errorMsg: "You should not see this. If you do, there is a problem with the app."
    };
    const [error, setError] = useState(INITIAL_ERROR);
+   const login = getToken();
 
    return (
       <div className="App">
@@ -25,15 +28,15 @@ function App() {
          <article>
             <nav>
                <NavLink exact to="/">Home</NavLink>
-               <NavLink to="/login">Log In</NavLink>
-               <NavLink to="/logout">Log Out</NavLink>
-               <NavLink to="/add-friend">Add a Friend</NavLink>
+               {!login && <NavLink to="/login">Log In</NavLink>}
+               {login && <NavLink to="/logout">Log Out</NavLink>}
+               {login && <NavLink to="/add-friend">Add a Friend</NavLink>}
             </nav>
          
             <ErrorContext.Provider value={{error, setError, INITIAL_ERROR}}>
                <div className="content">
+                  {login && <Route exact path="/" component={FriendList} />}
                   <Route exact path="/login" component={LoginForm} />
-                  <Route exact path="/friends" component={FriendList} />
                   <Route exact path="/error" component={PageError} />
                </div>
             </ErrorContext.Provider>

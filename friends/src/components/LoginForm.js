@@ -39,11 +39,7 @@ function LoginForm ({history}) {
 
    return (
       <div>
-         {
-            (error.status >= 0)
-            ?  <p className="error">{error.errorMsg}</p>
-            : null
-         }
+         {(error.status >= 0) && <p className="error">{error.errorMsg}</p>}
          <form name="login" onSubmit={handleSubmit}>
             <input type="text" name="username" placeholder="Enter a username" onChange={handleChange} value={data.email} />
             <input type="password" name="password" placeholder="Enter a password" onChange={handleChange} value={data.password} />
