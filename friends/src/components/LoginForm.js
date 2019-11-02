@@ -25,7 +25,7 @@ function LoginForm ({history}) {
          .post("/api/login", data)
          .then(response => {
             setToken(response.data.payload);
-            history.push("/friends");
+            history.push("/");
          })
          .catch(err => {
             setError({

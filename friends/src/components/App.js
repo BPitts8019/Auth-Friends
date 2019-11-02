@@ -6,6 +6,7 @@ import ErrorContext from "../contexts/ErrorContext";
 
 // Components
 import {NavLink, Route} from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 import LoginForm from "./LoginForm";
 import FriendList from "./FriendList";
 import PageError from "./PageError";
@@ -35,7 +36,7 @@ function App() {
          
             <ErrorContext.Provider value={{error, setError, INITIAL_ERROR}}>
                <div className="content">
-                  {login && <Route exact path="/" component={FriendList} />}
+                  <ProtectedRoute exact path="/" component={FriendList} />
                   <Route exact path="/login" component={LoginForm} />
                   <Route exact path="/error" component={PageError} />
                </div>
