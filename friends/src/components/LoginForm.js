@@ -13,14 +13,22 @@ function LoginForm () {
    });
 
    // handlers
-   const handleChange = event => {};
-   const handleSubmit = event => {};
+   const handleChange = event => {
+      setData({
+         ...data,
+         [event.target.name]: event.target.value
+      });
+   };
+   const handleSubmit = event => {
+      event.preventDefault();
+      console.log(data);
+   };
 
    return (
       <div style={wrapper}>
-         <form name="login">
-            <input type="email" placeholder="Email..." />
-            <input type="password" placeholder="Password..." />
+         <form name="login" onSubmit={handleSubmit}>
+            <input type="email" name="email" placeholder="Enter an email" onChange={handleChange} value={data.email} />
+            <input type="password" name="password" placeholder="Enter a password" onChange={handleChange} value={data.password} />
             <button type="submit">Login</button>
          </form>
       </div>

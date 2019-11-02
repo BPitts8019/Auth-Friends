@@ -260,13 +260,14 @@ html {
 }
 #root .App button {
   background: #4b3832;
-  color: #fff4e6;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
+  color: #fff4e6;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
+  outline: none;
+  padding: 10px 20px;
 }
 #root .App button:hover {
   opacity: 0.7;
