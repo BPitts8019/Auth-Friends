@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
+import {NavLink, Route, withRouter} from "react-router-dom";
 import {getToken} from "../utils/api";
 
 // Context
 import ErrorContext from "../contexts/ErrorContext";
 
 // Components
-import {NavLink, Route} from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import LoginForm from "./LoginForm";
 import FriendList from "./FriendList";
 import PageError from "./PageError";
+import Logout from "./Logout";
 
 function App() {
    const INITIAL_ERROR = {
@@ -39,6 +40,7 @@ function App() {
                   <ProtectedRoute exact path="/" component={FriendList} />
                   <Route exact path="/login" component={LoginForm} />
                   <Route exact path="/error" component={PageError} />
+                  <Route exact path="/logout" component={Logout} />
                </div>
             </ErrorContext.Provider>
          </article>
@@ -46,4 +48,4 @@ function App() {
    );
 }
 
-export default App;
+export default withRouter(App);
