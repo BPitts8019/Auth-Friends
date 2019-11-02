@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
+import authApi from "../utils/api";
+import ErrorContext from "../contexts/ErrorContext";
 
-function LoginForm () {
-   //styles
-   const wrapper = {
-      margin: "2rem"
-   };
-
+function LoginForm ({history}) {
    //local state
    const [data, setData] = useState({
-      email: "",
+      username: "",
       password: ""
    });
+   const {error, setError, INITIAL_ERROR} = useContext(ErrorContext);
 
    // handlers
    const handleChange = event => {
@@ -21,13 +19,32 @@ function LoginForm () {
    };
    const handleSubmit = event => {
       event.preventDefault();
-      console.log(data);
+      setError(INITIAL_ERROR);
+      
+      authApi()
+         .post("/api/login", data)
+         .then(response => {
+            console.log(response.data);
+         })
+         .catch(err => {
+            setError({
+               ...error,
+               status: err.response.status,
+               statusText: err.response.statusText,
+               errorMsg: err.response.data.error
+            });
+         })
    };
 
    return (
-      <div style={wrapper}>
+      <div>
+         {
+            (error.status >= 0)
+            ?  <p className="error">{error.errorMsg}</p>
+            : null
+         }
          <form name="login" onSubmit={handleSubmit}>
-            <input type="email" name="email" placeholder="Enter an email" onChange={handleChange} value={data.email} />
+            <input type="text" name="username" placeholder="Enter a username" onChange={handleChange} value={data.email} />
             <input type="password" name="password" placeholder="Enter a password" onChange={handleChange} value={data.password} />
             <button type="submit">Login</button>
          </form>

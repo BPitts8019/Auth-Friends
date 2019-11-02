@@ -227,14 +227,14 @@ html {
   align-items: flex-start;
 }
 #root .App article .content {
-  margin: 0 auto;
+  margin: 2rem auto;
   width: 50%;
 }
 #root .App input {
   background-color: #be9b7b;
   border: 1px solid #854442;
   border-radius: 2px;
-  box-shadow: inset #854442 0 0 6px 1px;
+  box-shadow: inset #854442 0 0 4px 1px;
   display: block;
   font-family: 'Roboto Condensed', Sans-Serif;
   font-weight: bold;
