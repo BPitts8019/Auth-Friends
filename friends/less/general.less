@@ -8,7 +8,8 @@ html {
 }
 
 html, body {
-   font: 1.6rem @body-font;
+   font-family: @body-font;
+   font-size: 1.6rem;
    color: @body-color;
    // background-color: @bg-color;
 }
@@ -20,11 +21,11 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-   font-size: 3.2rem;
+   font-size: 2.8rem;
 }
 
 h2 {
-   font-size: 2.6rem;
+   font-size: 2.4rem;
 }
 
 h3 {
@@ -39,11 +40,14 @@ p {
    font-size: 1.6rem;
 }
 
-.content {
-   background-color: @attention-color;
-   color: @light-text;
+.App {
+   color: @dark-text;
    margin: 0 auto;
    min-width: 320px;
    max-width: 1000px;
    text-align: center;
+
+   article {
+      .custom-layout(flex-start);
+   }
 }

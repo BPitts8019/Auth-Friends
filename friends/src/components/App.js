@@ -5,11 +5,20 @@ function App() {
       <div className="App">
          <header>
             <h1>My Friends List</h1>
+         </header>
+
+         <article>
             <nav>
-               <a>Hello</a>
+               <a>Home</a>
+               <a>Log In</a>
+               <a>Account</a>
                <a>World</a>
             </nav>
-         </header>
+         
+            <ul className="friendsList">
+               <li className="friend">Bill</li>
+            </ul>
+         </article>
       </div>
    );
 }
