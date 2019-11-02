@@ -6,11 +6,39 @@
   src: local('Cabin'), local('Cabin-Regular'), url(https://fonts.gstatic.com/s/cabin/v14/u-4x0qWljRw-Pd8w__g.ttf) format('truetype');
 }
 @font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Cabin Medium'), local('Cabin-Medium'), url(https://fonts.gstatic.com/s/cabin/v14/u-480qWljRw-PdfD3Ohluyw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local('Cabin SemiBold'), local('Cabin-SemiBold'), url(https://fonts.gstatic.com/s/cabin/v14/u-480qWljRw-Pdfv2-hluyw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Cabin Bold'), local('Cabin-Bold'), url(https://fonts.gstatic.com/s/cabin/v14/u-480qWljRw-PdeL2uhluyw.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7CA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCQYag.ttf) format('truetype');
 }
 #root {
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -149,7 +177,7 @@ html {
   font-size: 62.5%;
 }
 #root {
-  color: #1a1423;
+  color: #3c2f2f;
   font-family: 'Cabin', Sans-Serif;
 }
 #root h1,
@@ -158,7 +186,7 @@ html {
 #root h4,
 #root h5 {
   font-family: 'Roboto Condensed', Sans-Serif;
-  color: #1a1423;
+  color: #3c2f2f;
   font-weight: bold;
 }
 #root h1 {
@@ -180,15 +208,16 @@ html {
   font-size: 1.6rem;
 }
 #root .App {
-  color: #1a1423;
+  background-color: #fff4e6;
+  color: #3c2f2f;
   margin: 0 auto;
   min-width: 320px;
   max-width: 1000px;
   text-align: center;
 }
 #root .App header {
-  background-color: #f2ecdd;
-  border-bottom: 1px solid #ddd1c7;
+  background-color: #be9b7b;
+  border-bottom: 1px solid #854442;
   padding: 7px 0;
 }
 #root .App article {
@@ -201,9 +230,51 @@ html {
   margin: 0 auto;
   width: 50%;
 }
+#root .App input {
+  background-color: #be9b7b;
+  border: 1px solid #854442;
+  border-radius: 2px;
+  box-shadow: inset #854442 0 0 6px 1px;
+  display: block;
+  font-family: 'Roboto Condensed', Sans-Serif;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  outline: none;
+  padding: 10px;
+  width: 100%;
+}
+#root .App input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #fff4e6;
+  opacity: 1;
+  /* Firefox */
+}
+#root .App input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff4e6;
+}
+#root .App input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff4e6;
+}
+#root .App button {
+  background: #4b3832;
+  color: #fff4e6;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+}
+#root .App button:hover {
+  opacity: 0.7;
+}
 #root nav {
-  background-color: #85756e;
-  color: #f2ecdd;
+  background-color: #854442;
+  color: #fff4e6;
+  min-height: 80vh;
   padding: 0;
   width: 200px;
   display: flex;
@@ -212,18 +283,17 @@ html {
   align-items: flex-start;
 }
 #root nav a {
-  color: #f2ecdd;
+  color: #fff4e6;
   padding: 8px 16px;
   text-decoration: none;
   width: 100%;
 }
 #root nav a:visited {
-  color: #f2ecdd;
+  color: #fff4e6;
 }
 #root nav a:hover {
-  color: #ddd1c7;
-  font-weight: bolder;
+  opacity: 0.7;
 }
 #root nav a.active {
-  background-color: #85756e;
+  background-color: #4b3832;
 }

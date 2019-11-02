@@ -3,28 +3,29 @@
       background-color: @nav-bg;
       // border-right: 2px solid @nav-border;
       color: @light-text;
+      min-height: 80vh;
       padding: 0;
       width: 200px;
    
       .custom-layout(flex-start, flex-start, column);
 
       a {
-         color: @link;
+         // background-color: @link-bg;
+         color: @link-color;
          padding: 8px 16px;
          text-decoration: none;
          width: 100%;
 
          &:visited {
-            color: @link-visited;
+            color: @link-color-visited;
          }
 
          &:hover {
-            color: @link-hover;
-            font-weight: bolder;
+            opacity: 0.7;
          }
 
          &.active {
-            background-color: @attention-color;
+            background-color: @link-bg-active;
          }
       }
    }
