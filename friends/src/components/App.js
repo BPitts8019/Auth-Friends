@@ -4,6 +4,7 @@ import {getToken} from "../utils/api";
 
 // Context
 import ErrorContext from "../contexts/ErrorContext";
+import FriendsContext from "../contexts/FriendsContext";
 
 // Components
 import ProtectedRoute from "./ProtectedRoute";
@@ -19,6 +20,8 @@ function App() {
       errorMsg: "You should not see this. If you do, there is a problem with the app."
    };
    const [error, setError] = useState(INITIAL_ERROR);
+   const ZERO_FRIENDS = [];
+   const [friends, setFriends] = useState(ZERO_FRIENDS);
    const login = getToken();
 
    return (
@@ -35,12 +38,16 @@ function App() {
                {login && <NavLink to="/add-friend">Add a Friend</NavLink>}
             </nav>
          
+               
             <ErrorContext.Provider value={{error, setError, INITIAL_ERROR}}>
                <div className="content">
-                  <ProtectedRoute exact path="/" component={FriendList} />
+                  <FriendsContext.Provider value={{friends, setFriends, ZERO_FRIENDS}}>
+                     <ProtectedRoute exact path="/" component={FriendList} />
+                     <Route exact path="/logout" component={Logout} />
+                  </FriendsContext.Provider>
+                  {/* <ProtectedRoute exact path="/friend/:id" component={Friend} /> */}
                   <Route exact path="/login" component={LoginForm} />
                   <Route exact path="/error" component={PageError} />
-                  <Route exact path="/logout" component={Logout} />
                </div>
             </ErrorContext.Provider>
          </article>
