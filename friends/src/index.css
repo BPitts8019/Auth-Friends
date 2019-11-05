@@ -230,6 +230,30 @@ html {
   margin: 2rem auto;
   width: 50%;
 }
+#root .App article .content .friend-card {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #3c2f2f;
+}
+#root .App article .content .friend-card img {
+  margin-right: 1rem;
+}
+#root .App article .content .friend-card h5 {
+  color: #854442;
+  font-size: 1.2rem;
+}
+#root .App article .content .friend-card > div {
+  text-align: left;
+}
+#root .App article .content .friend-card .name-wrapper {
+  width: 12.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
 #root .App .error {
   color: red;
   margin: 1rem 0;

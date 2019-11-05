@@ -63,6 +63,30 @@ html {
             margin: 2rem auto;
             width: 50%;
             // padding: 1rem 2rem;
+
+            .friend-card {
+               .custom-layout(flex-start);
+               color: @dark-text;
+
+               img {
+                  margin-right: 1rem;
+               }
+
+               h5 {
+                  color: @subtle-text;
+                  // font-style: italic;
+                  font-size: 1.2rem;
+               }
+
+               &>div {
+                  text-align: left;
+               }
+
+               .name-wrapper {
+                  width: 12.5rem;
+                  .custom-layout(space-between, center);
+               }
+            }
          }
       }
 
