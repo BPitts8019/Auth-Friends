@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
-import {NavLink, Route, withRouter} from "react-router-dom";
-import {getToken} from "../utils/api";
+import React, { useState } from 'react';
+import { NavLink, Route, withRouter } from "react-router-dom";
+import { getToken } from "../utils/api";
 
 // Context
 import ErrorContext from "../contexts/ErrorContext";
@@ -10,6 +10,7 @@ import FriendsContext from "../contexts/FriendsContext";
 import ProtectedRoute from "./ProtectedRoute";
 import LoginForm from "./LoginForm";
 import FriendList from "./FriendList";
+import Friend from "./Friend";
 import PageError from "./PageError";
 import Logout from "./Logout";
 
@@ -37,19 +38,22 @@ function App() {
                {login && <NavLink to="/logout">Log Out</NavLink>}
                {login && <NavLink to="/add-friend">Add a Friend</NavLink>}
             </nav>
-         
-               
-            <ErrorContext.Provider value={{error, setError, INITIAL_ERROR}}>
-               <div className="content">
-                  <FriendsContext.Provider value={{friends, setFriends, ZERO_FRIENDS}}>
-                     <ProtectedRoute exact path="/" component={FriendList} />
-                     <Route exact path="/logout" component={Logout} />
-                  </FriendsContext.Provider>
-                  {/* <ProtectedRoute exact path="/friend/:id" component={Friend} /> */}
-                  <Route exact path="/login" component={LoginForm} />
-                  <Route exact path="/error" component={PageError} />
-               </div>
-            </ErrorContext.Provider>
+
+
+            <div className="content">
+               {/* <Switch> */}
+                  <ErrorContext.Provider value={{ error, setError, INITIAL_ERROR }}>
+                     <FriendsContext.Provider value={{ friends, setFriends, ZERO_FRIENDS }}>
+                        <ProtectedRoute exact path="/" component={FriendList} />
+                        <Route exact path="/logout" component={Logout} />
+                     </FriendsContext.Provider>
+                     <ProtectedRoute exact path="/friend/:id" component={Friend} />
+                     <Route exact path="/login" component={LoginForm} />
+                     <Route exact path="/error" component={PageError} />
+                     {/* <Route component={() => <p>404 Cannot Find that page.</p>} /> */}
+                  </ErrorContext.Provider>
+               {/* </Switch> */}
+            </div>
          </article>
       </div>
    );
