@@ -32,7 +32,7 @@ function FriendList ({history}) {
       ?  (<ul className="friendsList">
             {friends.map(friend => (
                <li key={friend.id} className="friend">
-                  <Link to={`./friend/:${friend.id}`}>{friend.name}</Link>
+                  <Link to={`./friend/${friend.id}`}>{friend.name}</Link>
                </li>
             ))}
          </ul>)

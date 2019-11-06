@@ -14,26 +14,26 @@ function Friend({ match, history }) {
 
    useEffect(() => {
       console.log(match.params);
-      setFriend({
-         id: 3,
-         name: 'Ryan',
-         age: 15,
-         email: 'ryan@lambdaschool.com'
-      });
-      // authApi()
-      //    .get(`/api/friends/${match.params.id}`)
-      //    .then(response => {
-      //       setFriend(response.data);
-      //    })
-      //    .catch(err => {
-      //       setError({
-      //          ...error,
-      //          status: err.response.status,
-      //          statusText: err.response.statusText,
-      //          errorMsg: err.response.data.error
-      //       });
-      //       history.push("/error");
-      //    })
+      // setFriend({
+      //    id: 3,
+      //    name: 'Ryan',
+      //    age: 15,
+      //    email: 'ryan@lambdaschool.com'
+      // });
+      authApi()
+         .get(`/api/friends/${match.params.id}`)
+         .then(response => {
+            setFriend(response.data);
+         })
+         .catch(err => {
+            setError({
+               ...error,
+               status: err.response.status,
+               statusText: err.response.statusText,
+               errorMsg: err.response.data.error
+            });
+            history.push("/error");
+         })
    }, []);
 
    return (
