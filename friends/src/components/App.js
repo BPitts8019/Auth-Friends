@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Route, withRouter } from "react-router-dom";
+import { NavLink, Route, Switch, withRouter } from "react-router-dom";
 import { getToken } from "../utils/api";
 
 // Context
@@ -13,6 +13,7 @@ import FriendList from "./FriendList";
 import Friend from "./Friend";
 import PageError from "./PageError";
 import Logout from "./Logout";
+import Missing from "./Missing";
 
 function App() {
    const INITIAL_ERROR = {
@@ -50,7 +51,7 @@ function App() {
                      <ProtectedRoute exact path="/friend/:id" component={Friend} />
                      <Route exact path="/login" component={LoginForm} />
                      <Route exact path="/error" component={PageError} />
-                     {/* <Route component={() => <p>404 Cannot Find that page.</p>} /> */}
+                     {/* <Route component={Missing} /> */}
                   </ErrorContext.Provider>
                {/* </Switch> */}
             </div>

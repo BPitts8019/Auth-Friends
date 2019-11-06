@@ -6,8 +6,8 @@ function PageError () {
 
    return (
       <div>
-         <h2>{status}: {statusText}</h2>
-         <h3>{errorMsg}</h3>
+         <h1>{errorMsg}</h1>
+         <h4>{status}: {statusText}</h4>
       </div>
    );
 }
