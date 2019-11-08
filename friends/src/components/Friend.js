@@ -21,7 +21,7 @@ function Friend({ match, history }) {
       //    email: 'ryan@lambdaschool.com'
       // });
       authApi()
-         .get(`/api/friends/:${match.params.id}`)
+         .get(`/api/friends/${match.params.id}`)
          .then(response => {
             setFriend(response.data);
          })
