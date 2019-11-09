@@ -1,0 +1,143 @@
+// General Styles
+* {
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 62.5%;
+}
+
+#root {
+   // background-color: @body-bg;
+   color: @body-color;
+   font-family: @body-font;
+   
+   h1, h2, h3, h4, h5 {
+      font-family: @header-font;
+      color: @header-color;
+      font-weight: bold;
+   }
+   
+   h1 {
+      font-size: 2.8rem;
+   }
+   
+   h2 {
+      font-size: 2.4rem;
+   }
+   
+   h3 {
+      font-size: 2.0rem;
+   }
+   
+   h4 {
+      font-size: 1.6rem;
+   }
+   
+   p {
+      font-size: 1.6rem;
+   }
+
+   a {
+      font-size: 1.6rem;
+   }
+   
+   .App {
+      background-color: @body-bg;
+      color: @dark-text;
+      margin: 0 auto;
+      min-width: 320px;
+      max-width: 1000px;
+      text-align: center;
+   
+      header {
+         background-color: @header-bg;
+         border-bottom: 1px solid @header-border;
+         padding: 7px 0;
+      }
+
+      article {
+         .custom-layout(flex-start);
+
+         .content {
+            margin: 2rem auto;
+            width: 50%;
+            // padding: 1rem 2rem;
+
+            .friend-card {
+               .custom-layout(flex-start);
+               color: @dark-text;
+
+               img {
+                  margin-right: 1rem;
+               }
+
+               h5 {
+                  color: @subtle-text;
+                  // font-style: italic;
+                  font-size: 1.2rem;
+               }
+
+               &>div {
+                  text-align: left;
+               }
+
+               .name-wrapper {
+                  width: 12.5rem;
+                  .custom-layout(space-between, center);
+               }
+            }
+         }
+      }
+
+      .error {
+         color: red;
+         margin: 1rem 0;
+      }
+
+      input {
+         background-color: @input-bg;
+         border: 1px solid @input-border;
+         border-radius: 2px;
+         box-shadow: inset @input-border 0 0 4px 1px;
+         // color: @input-color;
+         display: block;
+         font-family: @header-font;
+         font-weight: bold;
+         font-size: 1.6rem;
+         margin-bottom: 10px;
+         outline: none;
+         padding: 10px;
+         width: 100%;
+
+         &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: @input-color;
+            opacity: 1; /* Firefox */
+         }
+         
+         &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+         color: @input-color;
+         }
+         
+         &::-ms-input-placeholder { /* Microsoft Edge */
+         color: @input-color;
+         }
+      }
+
+      button {
+         background: @button-bg;
+         border: none;
+         border-radius: 4px;
+         color: @button-color;
+         cursor: pointer;
+         font-size: 14px;
+         font-weight: 500;
+         outline: none;
+         padding: 10px 20px;
+      }
+      
+      button:hover {
+         opacity: 0.7;
+      }
+   }
+}
